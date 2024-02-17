@@ -7,9 +7,12 @@ using UnityEngine;
 public class MiddleScript : MonoBehaviour
 {
     private LogicScript logic;
+
+    private AudioSource incrementSound;
     // Start is called before the first frame update
     void Start()
     {
+        incrementSound = GetComponent<AudioSource>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
@@ -19,9 +22,12 @@ public class MiddleScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 3)
+        if (collision.gameObject.layer == 3)
+        {
+            incrementSound.Play();
             logic.increment();
+        }
     }
 }
