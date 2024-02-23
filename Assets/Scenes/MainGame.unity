@@ -1239,8 +1239,8 @@ MonoBehaviour:
   logic: {fileID: 0}
   flapStrength: 15
   isAlive: 1
-  dropRotationSpeed: 4
-  flapRotationSpeed: 15
+  dropRotationSpeed: 2.5
+  flapRotationSpeed: 18
 --- !u!82 &1399609127
 AudioSource:
   m_ObjectHideFlags: 0
