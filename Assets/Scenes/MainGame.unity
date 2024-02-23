@@ -218,7 +218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &344213975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,13 +1189,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399609121}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.005463322, y: -0, z: -0, w: 0.9999851}
+  m_LocalRotation: {x: -0.0054628043, y: 0.000033370925, z: 0.0061085485, w: 0.99996644}
   m_LocalPosition: {x: -2.2, y: 6.8, z: -0.7}
   m_LocalScale: {x: 0.4, y: 0.3, z: 0.7818613}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -0.626, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.626, y: 0, z: 0.7}
 --- !u!50 &1399609124
 Rigidbody2D:
   serializedVersion: 4
@@ -1237,8 +1237,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 1399609124}
   logic: {fileID: 0}
-  flapStrength: 12
+  flapStrength: 15
   isAlive: 1
+  dropRotationSpeed: 4
+  flapRotationSpeed: 15
 --- !u!82 &1399609127
 AudioSource:
   m_ObjectHideFlags: 0
