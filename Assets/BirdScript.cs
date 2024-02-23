@@ -57,7 +57,6 @@ public class BirdScript : MonoBehaviour
         {
             _run = true;
         }
-        Debug.Log(_timer);
     }
 
     public void OnCollisionEnter2D(Collision2D other)
