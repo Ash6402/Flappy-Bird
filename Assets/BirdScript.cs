@@ -45,7 +45,7 @@ public class BirdScript : MonoBehaviour
         }
         else if(_y < transform.position.y)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 40), flapRotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 30), flapRotationSpeed * Time.deltaTime);
         }
         _y = transform.position.y;
 
