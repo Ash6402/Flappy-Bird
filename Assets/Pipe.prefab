@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308fc55e61a0906aa863b1b449c8c383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 10
   deadZone: -30
   bird: {fileID: 0}
 --- !u!1 &8263475870966465560

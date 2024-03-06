@@ -12,17 +12,14 @@ public class BirdScript : MonoBehaviour
     public LogicScript logic;
     public float flapStrength;
     public bool isAlive = true;
-    public float dropRotationSpeed;
     public float flapRotationSpeed;
-    private float _timer = 0.6f;
-    private bool _run;
-    private float _y;
-
-    private AudioSource flapAudio;
+    private float _y; 
+    private float _rotateSpeed = -2f;
+    private AudioSource _flapAudio;
     // Start is called before the first frame update
     void Start()
     {
-        flapAudio = GetComponent<AudioSource>();
+        _flapAudio = GetComponent<AudioSource>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
         _y = transform.position.y;
     }
@@ -33,33 +30,24 @@ public class BirdScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isAlive)
         {
             rigidbody.velocity = Vector2.up * flapStrength;
-            flapAudio.Play();
-            _run = false;
-            _timer = 0;
+            _flapAudio.Play();
         }
 
-        if (_y > transform.position.y && _run)
+        if (_y > transform.position.y)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(0, 0, -60)),
-            dropRotationSpeed * Time.deltaTime);
+            _rotateSpeed * Time.deltaTime);
+            _rotateSpeed += 0.35f;
         }
         else if(_y < transform.position.y)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 30), flapRotationSpeed * Time.deltaTime);
+            _rotateSpeed = -2f;
         }
         _y = transform.position.y;
-
-        if (_timer < 0.8f)
-        {
-            _timer += Time.deltaTime;
-        }
-        else
-        {
-            _run = true;
-        }
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
+    public void OnCollisionEnter2D()
     {
         logic.gameOver();
         isAlive = false;

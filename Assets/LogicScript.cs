@@ -11,16 +11,16 @@ public class LogicScript : MonoBehaviour
     public int score = 0;
     public Text text;
     public GameObject gameOverScreen;
-    private int highScore;
+    private int _highScore;
     public TextMeshProUGUI highScoreObj;
 
     private void Start()
     {
         if (PlayerPrefs.HasKey("HighScore"))
         {
-            int _highScore = PlayerPrefs.GetInt("highScore");
-            highScoreObj.text = _highScore.ToString();
-            highScore = _highScore;
+            var highScore = PlayerPrefs.GetInt("highScore");
+            highScoreObj.text = highScore.ToString();
+            _highScore = highScore;
         }
         else
         {
@@ -41,7 +41,7 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver()
     {
-        if (score > highScore)
+        if (score > _highScore)
         {
             PlayerPrefs.SetInt("highScore", score);
             highScoreObj.text = score.ToString();
