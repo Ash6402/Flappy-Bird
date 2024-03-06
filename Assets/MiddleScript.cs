@@ -1,33 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MiddleScript : MonoBehaviour
 {
-    private LogicScript logic;
+    private LogicScript _logic;
 
-    private AudioSource incrementSound;
+    private AudioSource _incrementSound;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        incrementSound = GetComponent<AudioSource>();
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _incrementSound = GetComponent<AudioSource>();
+        _logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 3)
-        {
-            incrementSound.Play();
-            logic.increment();
-        }
+        if (collision.gameObject.layer != 3) return;
+        _incrementSound.Play();
+        _logic.Increment();
     }
 }

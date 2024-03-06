@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PipeSpawnerScript : MonoBehaviour
@@ -8,30 +6,28 @@ public class PipeSpawnerScript : MonoBehaviour
     public float spawnRate, timer = 0;
     public BirdScript bird;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        spawn();
+        Spawn();
         bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdScript>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (bird.isAlive)
+        if (!bird.isAlive) return;
+        if (timer < spawnRate)
+            timer += Time.deltaTime;
+        else
         {
-            if (timer < spawnRate)
-                timer += Time.deltaTime;
-            else
-            {
-                spawn();
-                timer = 0;
-            }
+            Spawn();
+            timer = 0;
         }
     }
 
-    void spawn()
+    private void Spawn()
     {
-        float lowest = -1, highest = 15;
+        const float lowest = -1f, highest = 15f;
         Instantiate(pipe, new Vector3(
             transform.position.x,
             Random.Range(lowest, highest)

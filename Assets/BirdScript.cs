@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TreeEditor;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class BirdScript : MonoBehaviour
 {
@@ -17,7 +11,7 @@ public class BirdScript : MonoBehaviour
     private float _rotateSpeed = -2f;
     private AudioSource _flapAudio;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _flapAudio = GetComponent<AudioSource>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
@@ -25,7 +19,7 @@ public class BirdScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isAlive)
         {
@@ -49,7 +43,7 @@ public class BirdScript : MonoBehaviour
 
     public void OnCollisionEnter2D()
     {
-        logic.gameOver();
+        logic.GameOver();
         isAlive = false;
     }
 }

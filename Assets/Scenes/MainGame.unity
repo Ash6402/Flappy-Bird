@@ -335,7 +335,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 952863511}
         m_TargetAssemblyTypeName: LogicScript, Assembly-CSharp
-        m_MethodName: backToMainMenu
+        m_MethodName: BackToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1331,7 +1331,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 952863511}
         m_TargetAssemblyTypeName: LogicScript, Assembly-CSharp
-        m_MethodName: restartGame
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1510,7 +1510,6 @@ MonoBehaviour:
   logic: {fileID: 0}
   flapStrength: 18
   isAlive: 1
-  dropRotationSpeed: 4
   flapRotationSpeed: 10
 --- !u!82 &1399609127
 AudioSource:

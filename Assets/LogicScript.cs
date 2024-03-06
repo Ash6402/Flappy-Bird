@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,18 +25,18 @@ public class LogicScript : MonoBehaviour
         }
     }
 
-    public void increment()
+    public void Increment()
     {
         score += 1;
         text.text = score.ToString();
     }
 
-    public void restartGame()
+    public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void gameOver()
+    public void GameOver()
     {
         if (score > _highScore)
         {
@@ -49,7 +46,7 @@ public class LogicScript : MonoBehaviour
         gameOverScreen.SetActive(true);
     }
 
-    public void backToMainMenu()
+    public void BackToMainMenu()
     {
         SceneManager.LoadScene("Home");
     }
